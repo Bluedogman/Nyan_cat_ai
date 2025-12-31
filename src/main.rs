@@ -1,9 +1,11 @@
 use fs_extra::dir;
-use opencv::prelude::*;
+use opencv::prelude::*; //It's yelling at me for not using it but I think we need it anyways.
+use std::path::Path;
 use std::time::Instant;
 use xcap::Window;
 
 fn normalized(filename: &str) -> String {
+    //Like fricking formats your strings so that we can use it in xcap :3
     filename.replace(['|', '\\', ':', '/'], "")
 }
 
@@ -17,7 +19,7 @@ fn get_window(export_image: bool) {
     for window in &windows {
         if window.is_minimized().unwrap() || window.title().unwrap() != "Nyan Cat: Lost In Space" {
             //I only really care about Nyan cat :3
-            if &window.title().unwrap() == &windows[i].title().unwrap() {
+            if window.title().unwrap() == windows[i].title().unwrap() {
                 println!("Sowwy myan I couldn't find nyan cat anywhere!!");
             }
             continue;
@@ -34,6 +36,7 @@ fn get_window(export_image: bool) {
                 window.height().unwrap()
             ),
             (
+                //is the window minimized or maximize (both can be false btw)
                 window.is_minimized().unwrap(),
                 window.is_maximized().unwrap()
             )
@@ -53,11 +56,22 @@ fn get_window(export_image: bool) {
         i += 1;
         println!("It took {:?}", start.elapsed());
         //I wanna break here so if we have like a list [blah blah nyan_cat blah blah], why search blah and blah after
-        //we find nyan cat because like I dont really care about them.
+        //we find nyan cat because like I don't really care about them.
         break; // should maybe probably work(?) 
     }
 }
 
+fn find_objects() {
+    //Guess who uses YOLO??? meeeee!!!
+}
+
 fn main() {
+    //Shhhh
+    let is_present: bool;
+    is_present = Path::new("../coconut.jpeg").exists();
+    if is_present == false {
+        panic!()
+    }
+
     get_window(true);
 }
