@@ -4,3 +4,5 @@ In tools unpack.py will decompile assets and packs made from [TexturePacker](htt
 
 Going into training_yolo/create_labels will let you convert xml files that use any texture ATLAS from Texturepacker and convert them into usable training data
 for YOLO
+
+AS OF RIGHT NOW, VERY LIKELY IF NOT 100% CONFIDENT THAT SOME CODE IS BROKEN AND WILL NOT WORK (mostly in /tools)
