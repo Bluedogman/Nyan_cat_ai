@@ -61,7 +61,7 @@ fn get_window(export_image: bool) {
     }
 }
 
-fn find_objects() {
+fn _find_objects() {
     //Guess who uses YOLO??? meeeee!!!
 }
 

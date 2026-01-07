@@ -3,6 +3,8 @@
 import xml.etree.ElementTree as etree
 from pathlib import Path
 
+class_id = 0  # Iteration is a count of how many sprites have been processed
+
 print(
     "So uh yeah put all the files you want to convert in a subdirectory called 'xml_unformatted'"
 )
@@ -13,7 +15,6 @@ files = [
 
 
 def process_files(xml_file: Path):
-    iteration = 0  # Iteration is a count of how many sprites have been processed
     tree = etree.parse(xml_file)
     root = tree.getroot()
     print(root)
@@ -26,7 +27,7 @@ def process_files(xml_file: Path):
 
         if value is None:
             raise ValueError(
-                "Uhm... hey dummy, you formatted your xml file wrong and it's missing attribute"
+                "Uhm... hey dummy, you formatted your xml file wrong and it's missing a few attributes"
             )
         return int(value)
 
@@ -64,8 +65,9 @@ def process_files(xml_file: Path):
         )
 
         sprite_class = f"{iteration} {cen_x / IMG_W:.6f} {cen_y / IMG_H:.6f} {w / IMG_W:.6f} {h / IMG_H:.6f}"  # This is the YOLO verified class
-        with output_path.open("a") as f:
-            f.write(sprite_class + "\n")
+        # with output_path.open("a") as f: DON'T OUTPUT IN PROCESS
+        #     f.write(sprite_class + "\n")
+
         iteration += 1
 
 

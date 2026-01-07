@@ -3,3 +3,4 @@
 /.venv
 /__pycache__
 /training_yolo
+/.vscode
