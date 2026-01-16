@@ -19,7 +19,7 @@ fn get_window(export_image: bool) {
     for window in &windows {
         if window.is_minimized().unwrap() || window.title().unwrap() != "Nyan Cat: Lost In Space" {
             //I only really care about Nyan cat :3
-            if window.title().unwrap() == windows[i].title().unwrap() {
+            if window.title().unwrap() == windows[windows.len() - 1].title().unwrap() {
                 println!("Sowwy myan I couldn't find nyan cat anywhere!!");
             }
             continue;
@@ -61,17 +61,19 @@ fn get_window(export_image: bool) {
     }
 }
 
+/*
 fn _find_objects() {
     //Guess who uses YOLO??? meeeee!!!
 }
+    */
 
 fn main() {
     //Shhhh
     let is_present: bool;
     is_present = Path::new("../coconut.jpeg").exists();
-    if is_present == false {
-        panic!()
-    }
+    // if is_present == false {
+    //     panic!()
+    // }
 
     get_window(true);
 }

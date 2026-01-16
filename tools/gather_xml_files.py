@@ -2,8 +2,8 @@
 from pathlib import Path
 import shutil
 
-xml_files = Path("../assets")
-output_path = Path("../training_yolo/xml_unformatted/")
+xml_files = Path("assets")
+output_path = Path("training_yolo/xml_unformatted/")
 
 files = [
     file for file in xml_files.iterdir() if file.is_file() and file.suffix == ".xml"
