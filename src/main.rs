@@ -70,10 +70,10 @@ fn _find_objects() {
 fn main() {
     //Shhhh
     let is_present: bool;
-    is_present = Path::new("../coconut.jpeg").exists();
-    // if is_present == false {
-    //     panic!()
-    // }
+    is_present = Path::new("coconut.jpeg").exists();
+    if is_present == false {
+        panic!()
+    }
 
     get_window(true);
 }
